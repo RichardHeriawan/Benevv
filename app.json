@@ -1,0 +1,119 @@
+{
+  "expo": {
+    "name": "Benev",
+    "slug": "benevv",
+    "version": "1.1.3",
+    "orientation": "portrait",
+    "icon": "./assets/images/app_icon.png",
+    "scheme": "benevv",
+    "userInterfaceStyle": "automatic",
+    "extra": {
+      "eas": {
+        "projectId": "0332a0ee-0fb1-4d73-b713-9b03e3b86a15"
+      }
+    },
+    "plugins": [
+      ["expo-image-picker",
+        {
+          "photosPermission": "The app accesses your photos to let you share them with your friends."
+        }
+      ],
+      ["expo-facebook",
+      {
+        "userTrackingPermission": false
+      }
+      ],
+      ["sentry-expo"]
+    ],
+    "splash": {
+      "image": "./assets/images/AppLanding.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "facebookScheme": "fb2651224558470316",
+    "facebookAppId": "2651224558470316",
+    "facebookDisplayName": "Benevv",
+    "updates": {
+      "fallbackToCacheTimeout": 0
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "bundleIdentifier": "com.smarttwigs.client.benevv",
+      "supportsTablet": true,
+      "buildNumber": "14", 
+      "infoPlist": {
+        "NSCameraUsageDescription": "Take pictures to post on Benev"
+      }, 
+      "associatedDomains": [
+        "applinks:benevweb.external.smarttwigs.io"
+      ]
+    },
+    "web": {
+      "favicon": "./assets/images/favicon.png"
+    },
+    "notification" : {
+      "icon": "./assets/images/icon_small.png",
+      "iosDisplayInForeground": true
+    },
+    "hooks": {
+      "postPublish": [
+        {
+          "file": "sentry-expo/upload-sourcemaps",
+          "config": {
+            "organization": "smarttwigs-1o",
+            "project": "benevv",
+            "authToken": "71a63df55be2478fa839a9d1cd2da968ca0551287b624293baaa9f765d79b2c8"
+          }
+        }
+      ]
+    },
+    "android": {
+      "package": "com.smarttwigs.client.benevv",
+      "versionCode": 17,
+      "intentFilters": [
+        {
+          "action": "VIEW",
+          "autoVerify": true,
+          "data": [
+            {
+              "scheme": "https",
+              "host": "benevweb.external.smarttwigs.io",
+              "pathPrefix": "/post"
+            },
+            {
+              "scheme": "https",
+              "host": "benevweb.external.smarttwigs.io",
+              "pathPrefix": "/activity"
+            },
+            {
+              "scheme": "https",
+              "host": "benevweb.external.smarttwigs.io",
+              "pathPattern": "/post/..*"
+            },
+            {
+              "scheme": "https",
+              "host": "benevweb.external.smarttwigs.io",
+              "pathPattern": "/activity/..*"
+            },
+            {
+              "scheme": "https",
+              "host": "benevweb.external.smarttwigs.io",
+              "pathPattern": "/post?id=..*"
+            },
+            {
+              "scheme": "https",
+              "host": "benevweb.external.smarttwigs.io",
+              "pathPattern": "/activity?id=..*"
+            }
+          ],
+          "category": [
+            "BROWSABLE",
+            "DEFAULT"
+          ]
+        }
+      ]
+    }
+  }
+}
